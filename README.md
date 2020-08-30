@@ -1,14 +1,34 @@
 # littlebox
-## User Model
+1. Models
 
 ```
+//User
 {
 	id: uuid,
 	email: string,
 	first_name: string,
 	last_name: string,
 	password: hashstring
+	calendar: [Fragment],
+	cryptobox: [Secret]
 }
+
+//Fragment
+{
+	id: uuid,
+	title: string,
+	date: date,
+	share_users:[user_id],
+	is_encrypted: boolean
+}
+
+//Secret
+{
+	id: uuid,
+	domain: string,
+	passphrase: string
+}
+
 ```
 ## crypto box
 
