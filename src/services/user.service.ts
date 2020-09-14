@@ -6,7 +6,7 @@ export async function getUser()
         lastname: "world"
     }
 }
-
+ 
 export async function getUsers()
 {
     const result = [
