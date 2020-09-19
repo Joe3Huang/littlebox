@@ -1,6 +1,6 @@
 import { Status } from 'https://deno.land/std@0.62.0/http/http_status.ts';
-import { User } from './../models/User.ts'
-
+import { User } from './../models/User.ts';
+import { encrypt, decrypt } from './../services/secret.service.ts';
 const users = [
     new User("1","Hello1","world2"),
     new User("2","Hello2","world2"),
@@ -23,4 +23,14 @@ export async function getUsers(Id: string) : Promise<User[]>
     result.push(new User("123","Hello1","world2"));
     result.push(new User("1234","Hello1","world2"));
     return result;
+}
+
+export async function getUserMe() : Promise<User>
+{
+
+    const a = encrypt("hello");
+    console.log(a);
+    console.log("decrypt: ", decrypt(a));
+    const obj = users[0];
+    return User.fromJSON(obj);
 }

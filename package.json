@@ -1,0 +1,22 @@
+{
+  "name": "littlebox",
+  "version": "1.0.0",
+  "description": "1. Models",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joe3Huang/littlebox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joe3Huang/littlebox/issues"
+  },
+  "homepage": "https://github.com/Joe3Huang/littlebox#readme",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  }
+}

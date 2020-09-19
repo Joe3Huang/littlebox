@@ -1,7 +1,6 @@
 import { serve, ServerRequest } from 'https://deno.land/std@0.62.0/http/server.ts';
 import { Status } from 'https://deno.land/std@0.62.0/http/http_status.ts';
-
-import { getUsers, getUserById } from './services/user.service.ts';
+import { getUsers, getUserById, getUserMe } from './services/user.service.ts';
 import { Route, HttpMethod, RouteParam, extractRouteParams, routeParamPattern } from './services/router.service.ts';
 
 const s = serve({ port: 8000 });
@@ -12,13 +11,18 @@ const routes: Route[] = [
   {
     method: HttpMethod.GET,
     route: '/api/v1/users',
-    handler: getUsers,
+    handler: getUsers
   },
   {
     method: HttpMethod.GET,
     route: '/api/v1/users/:id',
-    handler: getUserById,
+    handler: getUserById
   },
+  {
+    method: HttpMethod.GET,
+    route: '/api/v1/users/me',
+    handler: getUserMe
+  }
 ];
 
 /**
