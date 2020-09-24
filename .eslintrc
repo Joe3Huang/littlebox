@@ -14,7 +14,7 @@
     "no-console": 0,
     "prettier/prettier": 2,
     "indent": ["error", 4],
-    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "next" }]
   },
   "env": {
     "browser": true,
