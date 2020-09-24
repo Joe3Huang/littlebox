@@ -12,9 +12,13 @@ class Express {
         this.express = express();
     }
 
-    private mountLocalsEnv(): void {}
+    private mountLocalsEnv(): void {
+        console.log('--mountLocalsEnv--');
+    }
 
-    private mountMiddlewares(): void {}
+    private mountMiddlewares(): void {
+        console.log('--mountMiddlewares--');
+    }
 
     private mountRoutes(): void {
         //api

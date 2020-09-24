@@ -9,7 +9,7 @@ class Handler {
     public static notFoundHandler(_express: express.Application): express.Application {
         const apiPrefix = 'api';
 
-        _express.use('*', (req: any, res: any) => {
+        _express.use('*', (req: express.Request, res: express.Response) => {
             const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
             console.error(`Path '${req.originalUrl}' not found [IP: '${ip}']!`);
