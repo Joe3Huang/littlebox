@@ -10,6 +10,7 @@ class Express {
 
     constructor() {
         this.express = express();
+        this.mountRoutes();
     }
 
     private mountLocalsEnv(): void {
