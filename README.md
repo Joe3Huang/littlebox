@@ -19,7 +19,8 @@
 	title: string,
 	date: date,
 	share_users:[user_id],
-	is_encrypted: boolean
+	is_encrypted: boolean,
+	vi: string
 }
 
 //Secret
@@ -27,6 +28,7 @@
 	id: uuid,
 	domain: string,
 	passphrase: string
+	vi: string
 }
 
 ```
