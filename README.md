@@ -8,7 +8,7 @@
 	email: string,
 	first_name: string,
 	last_name: string,
-	password: hashstring
+	hash: hashstring
 	calendar: [Fragment],
 	cryptobox: [Secret]
 }
