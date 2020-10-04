@@ -1,17 +1,15 @@
 import { v4 as uuid } from 'uuid';
 import * as crypto from 'crypto';
 
-export interface Email extends String {}
-
 export class User {
     private id: string = uuid();
-    public email: Email = '';
-    public firstName: string = '';
-    public lastName: string = '';
-    private pwHash: string = '';
-    public calendar: any[] = [];
-    public crytobox: any[] = [];
-    public static fromJSON(json: any) {
+    public email = '';
+    public firstName = '';
+    public lastName = '';
+    private pwHash = '';
+    public calendar: string[] = [];
+    public crytobox: string[] = [];
+    public static fromJSON(json: any): User {
         const user = new User();
         user.email = json.email;
         user.firstName = json.firstName;
@@ -22,7 +20,7 @@ export class User {
         return user;
     }
 
-    public static async hash(password: string) {
+    public static async hash(password: string): Promise<string> {
         return new Promise((resolve, reject) => {
             const salt = crypto.randomBytes(8).toString('hex');
             crypto.scrypt(password, salt, 64, (err, derivedKey) => {
@@ -32,7 +30,7 @@ export class User {
         });
     }
 
-    public async verify(password: string) {
+    public async verify(password: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
             const [salt, key] = this.pwHash.split(':');
             crypto.scrypt(password, salt, 64, (err, derivedKey) => {

@@ -14,10 +14,12 @@
     "no-console": 0,
     "prettier/prettier": 2,
     "indent": ["error", 4],
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "next" }]
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "next" }],
+    "@typescript-eslint/no-explicit-any": 0
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
   }
 }
