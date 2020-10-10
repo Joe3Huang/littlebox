@@ -1,13 +1,17 @@
+import queue from './Queue';
 export enum EventTypes {
     addUser,
 }
-export abstract class Event {
+export class Event {
     public type: EventTypes;
     public createdDate: Date = new Date();
-    public version: string;
-    constructor(type: EventTypes, version: string) {
+    private func: () => {};
+    constructor(type: EventTypes, func: () => {}) {
         this.type = type;
-        this.version = version;
+        this.func = func;
+        queue.addEvent(this);
     }
-    abstract run(): void;
+    async run(): Promise<void> {
+        await this.func();
+    }
 }
