@@ -1,17 +1,16 @@
-import queue from './Queue';
+import eventProcessor from './EventProcessor';
 export enum EventTypes {
     addUser,
 }
-export class Event {
-    public type: EventTypes;
-    public createdDate: Date = new Date();
-    private func: () => {};
-    constructor(type: EventTypes, func: () => {}) {
-        this.type = type;
-        this.func = func;
-        queue.addEvent(this);
+
+export interface EventDataInterface {
+    type: EventTypes;
+    createdDate: Date;
+}
+
+export abstract class Event<T extends EventDataInterface> {
+    constructor(private data: T) {
+        eventProcessor.addEvent(this);
     }
-    async run(): Promise<void> {
-        await this.func();
-    }
+    abstract async run(): Promise<void>;
 }

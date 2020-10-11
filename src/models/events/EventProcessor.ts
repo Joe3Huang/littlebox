@@ -1,13 +1,13 @@
 import { Event } from './Event';
 
-class Queue {
-    public static instance: Queue;
-    events: Event[] = [];
+class EventProcessor {
+    public static instance: EventProcessor;
+    events: Event<any>[] = [];
     constructor() {
-        if (!Queue.instance) Queue.instance = this;
-        return Queue.instance;
+        if (!EventProcessor.instance) EventProcessor.instance = this;
+        return EventProcessor.instance;
     }
-    public addEvent(event: Event): void {
+    public addEvent(event: Event<any>): void {
         this.events.push(event);
     }
     public run(): void {
@@ -22,10 +22,6 @@ class Queue {
             }
         }, 0);
     }
-
-    private storeEvent(): void {
-        console.log('storeEvent');
-    }
 }
 
-export default new Queue();
+export default new EventProcessor();

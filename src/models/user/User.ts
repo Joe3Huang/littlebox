@@ -1,6 +1,5 @@
 import { v4 as uuid } from 'uuid';
 import * as crypto from 'crypto';
-import { EventTypes, Event } from '../events/Event';
 
 export class User {
     private id: string = uuid();
@@ -41,9 +40,7 @@ export class User {
         });
     }
 
-    public static addUserEvent(json: any): void {
-        new Event(EventTypes.addUser, async () => {
-            console.log('addUserEvent', json);
-        });
-    }
+    // public static addUserEvent(json: any): void {
+
+    // }
 }
